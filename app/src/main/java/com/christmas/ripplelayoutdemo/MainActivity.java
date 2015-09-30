@@ -4,14 +4,48 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import butterknife.Bind;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+  @Bind(R.id.tv_demo1) TextView tvDemoOne;
+  @Bind(R.id.tv_demo2) TextView tvDemoTwo;
+  @Bind(R.id.tv_demo3) TextView tvDemoThree;
+  @Bind(R.id.tv_demo4) TextView tvDemoFour;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.layout_main);
   }
+
+  @SuppressWarnings("unused")
+  @OnClick(R.id.tv_demo_one)
+  protected void demoOneClick() {
+    Toast.makeText(this, "Demo one click.", Toast.LENGTH_SHORT).show();
+  }
+
+  @SuppressWarnings("unused")
+  @OnClick(R.id.tv_demo_two)
+  protected void demoTwoClick() {
+    Toast.makeText(this, "Demo two click.", Toast.LENGTH_SHORT).show();
+  }
+
+  @SuppressWarnings("unused")
+  @OnClick(R.id.tv_demo_three)
+  protected void demoThreeClick() {
+    Toast.makeText(this, "Demo three click.", Toast.LENGTH_SHORT).show();
+  }
+
+  @SuppressWarnings("unused")
+  @OnClick(R.id.tv_demo_four)
+  protected void demoFourClick() {
+    Toast.makeText(this, "Demo four click.", Toast.LENGTH_SHORT).show();
+  }
+
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {

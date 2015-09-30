@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.christmas.ripplelayoutdemo"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -22,6 +21,4 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile project(':ripplelayout')
 }
