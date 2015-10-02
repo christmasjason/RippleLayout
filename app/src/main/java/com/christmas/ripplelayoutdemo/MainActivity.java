@@ -11,10 +11,10 @@ import butterknife.Bind;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-  @Bind(R.id.tv_demo1) TextView tvDemoOne;
-  @Bind(R.id.tv_demo2) TextView tvDemoTwo;
-  @Bind(R.id.tv_demo3) TextView tvDemoThree;
-  @Bind(R.id.tv_demo4) TextView tvDemoFour;
+  @Bind(R.id.tv_demo_one) TextView tvDemoOne;
+  @Bind(R.id.tv_demo_two) TextView tvDemoTwo;
+  @Bind(R.id.tv_demo_three) TextView tvDemoThree;
+  @Bind(R.id.tv_demo_four) TextView tvDemoFour;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

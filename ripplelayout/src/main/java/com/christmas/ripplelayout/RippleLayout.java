@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,6 +14,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * 点击波纹效果布局.
@@ -132,7 +134,7 @@ public class RippleLayout extends RelativeLayout {
           this.touchView = touchTargetView;
           calculateTouchViewBounds();
           createAnimation(event.getX(), event.getY(), touchTargetView);
-          postInvalidateDelayed(frameRate);
+          postInvalidateDelayed(frameRate, touchViewLeftInRippleLayout, touchViewTopInRippleLayout, touchViewRightInRippleLayout, touchViewBottomInRippleLayout);
         }
       }
 
@@ -168,9 +170,9 @@ public class RippleLayout extends RelativeLayout {
 
     if (percent == 0) {
       canvas.save();
-      canvas.clipRect(touchViewLeftInRippleLayout, touchViewTopInRippleLayout, touchViewRightInRippleLayout, touchViewBottomInRippleLayout);
     }
 
+    canvas.clipRect(touchViewLeftInRippleLayout, touchViewTopInRippleLayout, touchViewRightInRippleLayout, touchViewBottomInRippleLayout);
     canvas.drawCircle(startX, startY, (radiusMax * (((float) percent * frameRate) / rippleDuration)), paint);
     paint.setAlpha((int) (rippleAlpha - ((rippleAlpha) * (((float) percent * frameRate) / rippleDuration))));
 
