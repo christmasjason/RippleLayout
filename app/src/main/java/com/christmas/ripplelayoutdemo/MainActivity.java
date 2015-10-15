@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.layout_main);
+
+    ButterKnife.bind(this);
   }
 
   @SuppressWarnings("unused")
