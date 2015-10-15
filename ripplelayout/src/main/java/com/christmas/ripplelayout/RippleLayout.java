@@ -31,6 +31,8 @@ public class RippleLayout extends RelativeLayout {
 
   private int touchViewWidth;
   private int touchViewHeight;
+  private int touchViewTopOnScreen;
+  private int touchViewLeftOnScreen;
   private int touchViewLeftInRippleLayout;
   private int touchViewTopInRippleLayout;
   private int touchViewRightInRippleLayout;
@@ -116,6 +118,8 @@ public class RippleLayout extends RelativeLayout {
 
     int[] touchViewLocation = new int[2];
     touchView.getLocationOnScreen(touchViewLocation);
+    touchViewLeftOnScreen = touchViewLocation[0];
+    touchViewTopOnScreen = touchViewLocation[1];
     touchViewLeftInRippleLayout = touchViewLocation[0] - rippleLayoutLocation[0];
     touchViewTopInRippleLayout = touchViewLocation[1] - rippleLayoutLocation[1];
     touchViewRightInRippleLayout = touchViewLeftInRippleLayout + touchView.getMeasuredWidth();
@@ -201,8 +205,8 @@ public class RippleLayout extends RelativeLayout {
 
   private void createZoomAnimation(View touchTargetView) {
     ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, zoomScale, 1.0f, zoomScale,
-        (touchViewRightInRippleLayout + touchViewLeftInRippleLayout) / 2,
-        (touchViewBottomInRippleLayout + touchViewTopInRippleLayout) / 2);
+        ScaleAnimation.RELATIVE_TO_SELF, 0.5f,
+        ScaleAnimation.RELATIVE_TO_SELF, 0.5f);
     scaleAnimation.setDuration(zoomDuration);
     scaleAnimation.setRepeatMode(Animation.REVERSE);
     scaleAnimation.setRepeatCount(1);
